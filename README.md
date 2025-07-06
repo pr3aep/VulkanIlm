@@ -2,7 +2,7 @@
 
 **VulkanIlm** (from _"Vulkan"_ 🔥 and _"Ilm"_ 📚 meaning "knowledge" in Urdu/Arabic) is a lightweight, Pythonic wrapper for running **LLaMA models** on legacy GPUs using the **Vulkan backend** from [`llama.cpp`](https://github.com/ggerganov/llama.cpp).
 
-🚀 Designed for developers with older AMD GPUs (like the RX 580), `VulkanIlm` enables blazing-fast local LLM inference without needing CUDA or ROCm.
+Designed for developers with older AMD/Intel GPUs, `VulkanIlm` enables blazing-fast local LLM inference without needing CUDA or ROCm.
 
 ---
 
@@ -114,24 +114,3 @@ MIT License – free to use, modify, and share.
 ---
 
 > *Built with 🔥 by Talha | Running local LLMs on fire for everyone, everywhere.*
-
----
-
-## 🧩 GitHub Topics (Add These for Visibility)
-
-```
-llama-cpp-python, vulkan, llm-inference, python-wrapper, amd-gpu, open-source-llm, gguf, fastai, legacy-gpus, desi-tech
-```
-
-```
-
----
-
-Let me know if you want the:
-- 🧠 **Copilot Space tagline + instructions**
-- 📦 `pyproject.toml` + build instructions
-- 🖼️ SVG logo for favicon or header badge
-- 📘 Dev guide with internal structure and extension hooks
-
-You’ve got something powerful brewing here — let’s package it for the world 🌍
-```
